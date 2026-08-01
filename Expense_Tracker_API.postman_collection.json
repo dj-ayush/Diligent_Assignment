@@ -1,0 +1,116 @@
+{
+  "info": {
+    "name": "Smart Expense Tracker API",
+    "description": "Complete API collection for testing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Create Expense",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Lunch\",\n  \"amount\": 15.50,\n  \"category\": \"Food\",\n  \"date\": \"2026-07-31\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/expenses/"
+        }
+      }
+    },
+    {
+      "name": "2. View All Expenses",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/expenses/"
+        }
+      }
+    },
+    {
+      "name": "3. Filter by Category (Food)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/expenses/?category=Food"
+        }
+      }
+    },
+    {
+      "name": "4. Get Total Expenses",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/expenses/total/"
+        }
+      }
+    },
+    {
+      "name": "5. Get Total by Category (Food)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/expenses/total/?category=Food"
+        }
+      }
+    },
+    {
+      "name": "6. Delete Expense (ID: 1)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/expenses/1/"
+        }
+      }
+    },
+    {
+      "name": "7. Invalid Expense (Negative Amount)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Invalid\",\n  \"amount\": -10.00,\n  \"category\": \"Food\",\n  \"date\": \"2026-07-31\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/expenses/"
+        }
+      }
+    },
+    {
+      "name": "8. Invalid Expense (Future Date)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Future\",\n  \"amount\": 100.00,\n  \"category\": \"Food\",\n  \"date\": \"2030-01-01\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/expenses/"
+        }
+      }
+    }
+  ]
+}
